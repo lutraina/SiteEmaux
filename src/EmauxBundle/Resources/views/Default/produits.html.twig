@@ -1,0 +1,55 @@
+{% extends '::base.html.twig' %}
+
+{% block banner %}
+    
+    <section id="">
+    <div class="inner" style="margin-top:50px; background-color:#000; height:100px;">
+                <br/>
+                    <h2>D'Emaux et Des Choses</h2>
+
+            </div>
+    </section>
+    
+{% endblock %}
+
+{% block section1 %}
+    
+{% endblock %}
+    
+{% block homepagesections %}
+    <!-- Main -->
+					<article id="main">
+						 
+						<section class="wrapper style5">
+							<div class="inner">
+
+								<!-- Three -->
+					<section id="three" class="wrapper style3 special">
+						<div class="inner">
+							<header class="major">
+								<h2>Les bijoux</h2>
+								<p>Toutes nos bijoux sont fabriqués dans notre magasin.</p>
+							</header>
+							<ul class="features">
+                                                            {% for produit in produits %}
+								<li class="icon fa-paper-plane-o">
+									{{produit.categorie}}
+									<p><img height="200" width="250" src="{{ asset('uploads/'~produit.image) }}" alt="" />
+                                                                            <br/>
+                                                                            <span style = "color:#eeeeee !important;">{{produit.description}}</span>
+                                                                            </p>
+								</li>
+							    {% endfor %}	
+							</ul>
+						</div>
+					</section>
+					
+												</div>
+						</section>
+					</article>
+{% endblock %}
+
+                  
+                                        
+				{% block pageaccueil %}
+				{% endblock %}

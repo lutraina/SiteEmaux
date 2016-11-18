@@ -1,0 +1,34 @@
+{% extends 'layoutCrud.html.twig' %}
+
+{% block body %}
+    <div class="wrapper style3">
+    <div class="inner">
+    <h1>Sections page accueil</h1>
+    <div id="revenir-accueil">
+        <ul>
+            <li>
+                <a href="{{ path('homepagesections_index') }}"><button type="submit"><< Revenir</button></a></li>
+        </ul>
+    </div>
+        
+
+    <div>Image actuelle :</div>
+    <div class="top-10"><img class="crud_image top-10" src="{{ asset('uploads/'~homepageSection.image) }}" alt="" width="300"/></div>
+    <form action="{{ path('homepage_update', { 'id': homepageSection.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+            <input type="hidden" name="_method" value="post" />
+            {{ form_widget(edit_form) }}
+            <p>
+                <button type="submit">Modifier</button>
+            </p>
+        </form>
+            
+    <ul id="menu_actions">
+        
+        <!--<li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Supprimer">
+            {{ form_end(delete_form) }}
+        </li>-->
+    </ul>
+    </div></div>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'layoutCrud.html.twig' %}
+
+{% block body %}
+    <div class="wrapper style3">
+    <div class="inner">
+    <h1>Sections page accueil</h1>
+
+	<ul>
+        <!--<li>
+            <a href="{{ path('homepagesections_new') }}"><input type="submit" value="Ajout" /></a>
+        </li>-->
+    </ul>
+    <table>
+        <thead>
+            <tr>
+                <!--<th>Id</th>-->
+                <th>Image</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for homepageSection in homepageSections %}
+            <tr>
+                <!--<td><a href="{{ path('homepagesections_show', { 'id': homepageSection.id }) }}">{{ homepageSection.id }}</a></td>-->
+                <td><img class="crud_thumbs" src="{{ asset('uploads/'~homepageSection.image) }}" alt="" /></td>
+                <td>{{ homepageSection.titre }}</td>
+                <td>{{ homepageSection.description }}</td>
+                <td>
+                    <ul id="menu_actions">
+                        <li>
+                            <a href="{{ path('homepagesections_show', { 'id': homepageSection.id }) }}"><input type="submit" value="Voir" /></a>
+                        </li>
+                        <li>
+                            <a href="{{ path('homepagesections_edit', { 'id': homepageSection.id }) }}"><input type="submit" value="Modifier" /></a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+    </div></div>
+{% endblock %}

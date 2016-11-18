@@ -1,0 +1,39 @@
+{% extends 'layoutCrud.html.twig' %}
+
+{% block body %}
+	<div class="wrapper style3">
+    <div class="inner">
+    <h1>Images</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th></th>
+                <td><img style="width:300px;" class="" src="{{ asset('uploads/'~image.image) }}" alt="" /></td>
+            </tr>
+            <tr>
+                <th>Categorie</th>
+                <td>{{ image.categorie }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ image.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul  id="menu_actions">
+        <li>
+            <a href="{{ path('images_index') }}"><< Retourner</a>
+        </li>
+        <li>
+            <a href="{{ path('images_edit', { 'id': image.id }) }}"><input type="submit" value="Modifier"></a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Supprimer">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+    </div></div>
+{% endblock %}

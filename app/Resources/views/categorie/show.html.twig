@@ -1,0 +1,35 @@
+{% extends 'layoutCrud.html.twig' %}
+
+{% block body %}
+    <div class="wrapper style3">
+    <div class="inner">
+        <h1>Categorie</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Nom</th>
+                <td>{{ categorie.nom }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ categorie.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul id="menu_actions">
+        <li>
+            <a href="{{ path('categorie_index') }}"><< Retourner</a>
+        </li>
+        <li>
+            <a href="{{ path('categorie_edit', { 'id': categorie.id }) }}">Modifier</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Supprimer">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+    </div></div>
+{% endblock %}

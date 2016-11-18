@@ -1,0 +1,47 @@
+{% extends 'layoutCrud.html.twig' %}
+
+{% block body %}
+    <div class="wrapper style3">
+    <div class="inner">
+    <h1>Produits</h1>
+    <ul style="list-style:none;">
+        <li>
+            <a href="{{ path('images_new') }}"><input type="submit" value="Ajouter un produit"></a>
+        </li>
+    </ul>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Categorie</th>
+                <th>Description</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for image in images %}
+            <tr>
+                <td><a href="{{ path('images_show', { 'id': image.id }) }}"><img class="crud_thumbs" src="{{ asset('uploads/'~image.image) }}" alt="" /></a></td>
+                <td>{{ image.categorie }}</td>
+                <td>{{ image.description }}</td>
+                <td>
+                    <ul style="list-style:none;">
+                        <li>
+                            <a href="{{ path('images_show', { 'id': image.id }) }}"><input type="submit" value="Voir"></a>
+                            
+                        </li>
+                        <li>
+                            <a href="{{ path('images_edit', { 'id': image.id }) }}"><input type="submit" value="Modifier"></a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+            
+</div></div>
+{% endblock %}

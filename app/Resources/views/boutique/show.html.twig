@@ -1,0 +1,34 @@
+{% extends 'layoutCrud.html.twig' %}
+
+{% block body %}
+    <div class="wrapper style3">
+    <div class="inner">
+    <h1>Boutique</h1>
+
+    <table>
+        <tbody>
+            
+            <tr>
+                <th>Description</th>
+                <td>{{ boutique.description }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td><img style="width:300px;" class="" src="{{ asset('uploads/'~boutique.image) }}" alt="" /></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul  id="menu_actions">
+        <li>
+            <a href="{{ path('boutique_index') }}">Retourner</a>
+        </li>
+        
+        <!--<li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>-->
+    </ul>
+            </div></div>
+{% endblock %}

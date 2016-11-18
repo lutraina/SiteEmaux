@@ -1,0 +1,21 @@
+{% extends 'layoutCrud.html.twig' %}
+
+{% block body %}
+	<div class="wrapper style3">
+    <div class="inner">
+    <h1>Images page accueil</h1>
+
+    <form action="{{ path('homesection_create') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <br/><p>
+            <button type="submit">Enregistrer</button>
+        </p>
+    </form>
+
+    <ul>
+        <li>
+            <a href="{{ path('homepagesections_index') }}"><button type="submit">Voir toutes les images</button></a></a>
+        </li>
+    </ul>
+    </div></div>
+{% endblock %}

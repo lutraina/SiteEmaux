@@ -1,0 +1,43 @@
+{% extends 'layoutCrud.html.twig' %}
+
+{% block body %}
+    <div class="wrapper style3">
+    <div class="inner">
+        
+    <h1>Boutique</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for boutique in boutiques %}
+            <tr>
+                <td><a href="{{ path('boutique_show', { 'id': boutique.description }) }}">{{ boutique.description }}</a></td>
+                <td><a href="{{ path('images_show', { 'id': boutique.id }) }}"><img class="crud_thumbs" src="{{ asset('uploads/'~boutique.image) }}" alt="" /></a></td>
+                <td>
+                    <ul id="menu_actions">
+                        <li>
+                            <a href="{{ path('boutique_show', { 'id': boutique.id }) }}">Voir</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('boutique_edit', { 'id': boutique.id }) }}">Modifier</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <!--<ul>
+        <li>
+            <a href="{{ path('boutique_new') }}">Create a new entry</a>
+        </li>
+    </ul>-->
+            </div></div>
+{% endblock %}

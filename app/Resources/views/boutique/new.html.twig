@@ -1,0 +1,21 @@
+{% extends 'layoutCrud.html.twig' %}
+
+{% block body %}
+    <div class="wrapper style3">
+    <div class="inner">
+        <h1>Boutique creation</h1>
+
+    <form action="{{ path('boutique_create') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <br/><p>
+            <button type="submit">Enregistrer</button>
+        </p>
+    </form>
+
+    <ul>
+        <li>
+            <a href="{{ path('boutique_index') }}">Back to the list</a>
+        </li>
+    </ul>
+            </div></div>
+{% endblock %}

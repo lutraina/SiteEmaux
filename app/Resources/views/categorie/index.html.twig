@@ -1,0 +1,44 @@
+{% extends 'layoutCrud.html.twig' %}
+
+{% block body %}
+    <div class="wrapper style3">
+    <div class="inner">
+    <h1>Categories</h1>
+
+    <ul id="menu_actions">
+        <li>
+            <a href="{{ path('categorie_new') }}">Ajouter une catégorie</a>
+        </li>
+    </ul>
+        
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for categorie in categories %}
+            <tr>
+                <td><a href="{{ path('categorie_show', { 'id': categorie.nom }) }}">{{ categorie.nom }}</a></td>
+                <td>{{ categorie.description }}</td>
+                <td>
+                    <ul  id="menu_actions">
+                        <li>
+                            <a href="{{ path('categorie_show', { 'id': categorie.id }) }}">voir</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('categorie_edit', { 'id': categorie.id }) }}">modifier</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+            </div></div>
+{% endblock %}

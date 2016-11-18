@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}D'Emaux et des Choses{% endblock %}</title>
+        {% block stylesheets %}
+        	{% stylesheets filter='cssrewrite'
+        		 
+        		'@EmauxBundle/Resources/public/css/main.css'
+        		'@EmauxBundle/Resources/public/css/font-awesome.min.css'
+        	%}
+        	<link rel="stylesheet" href="{{ asset_url }}"/>
+        	{% endstylesheets %}
+        {% endblock %}
+        
+        
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon-ConvertImage.ico') }}" />
+    </head>
+    <body class="page page-id-2343 page-template-default landing">
+    <div class="container">
+        {% block body %}
+        
+        {% block menu_admin %}{% endblock %}
+        
+        <!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt" style="background-color:#181818; color:#ddd;">
+						<h1><a href="{{ path('accueil_site') }}">D'Emaux et Des Choses</a></h1>
+						<nav id="nav">
+							<ul>
+								<li class="special">
+									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<div id="menu">
+										<ul>
+											<li><a href="{{ path('accueil_site') }}">>> Accueil</a></li>
+											<li><a href="{{ path('boutique_index') }}">Boutique</a></li>
+											<li><a href="{{ path('produits_index') }}">Bijoux</a></li>
+											<li><a href="{{ path('creatrices_index') }}">Créatrices</a></li>
+                                                                                        <li><a href="{{ path('accueil_site') }}login">Admin</a></li>
+										</ul> 
+									</div>
+								</li>
+                                                                
+							</ul>
+						</nav>
+					</header>
+
+                                {% block banner %} 
+                                    
+				<!-- Banner -->
+					<section id="banner">
+						<div class="inner" style="">
+                                                    <br/>
+							<h2><a href="{{ path('accueil_site') }}">D'Emaux et Des Choses</a></h2>
+							<p>Créateur des Bijoux<br /><br /><br />
+                                                            <span style="font-size:10px;">38 la rue Sergent Blandan 69901 Lyon </br>
+                                                                Ouverture : du mardi au samedi de 11h à 19h</br></span></p>
+							
+						</div>
+						<a href="#one" class="more scrolly">Entrer</a>
+					</section>
+
+                               {% endblock %}
+                                   {% block section1 %} 
+				<!-- One -->
+					<section id="one" class="wrapper style1 special">
+						<div class="" style="">
+							<header class="major">
+								{% for actu in actualite %}
+                                                                    <div class="icon fa-paper-plane-o">
+                                                                            <h3>{{actu.titre}}</h3>
+                                                                            <br/>
+                                                                            <p>{{actu.descriptif}}</p>
+                                                                    </div>
+                                                                {% endfor %}
+                                                            
+							</header>
+							<ul class="icons major">
+								<li><span class="icon fa-diamond major style1"><span class="label">Lorem</span></span></li>
+								<li><span class="icon fa-heart-o major style2"><span class="label">Ipsum</span></span></li>
+								<li><span class="icon fa-code major style3"><span class="label">Dolor</span></span></li>
+							</ul>
+						</div>
+					</section>
+ {% endblock %}
+  
+ <section id="three" class="wrapper  special" style="height:200px; margin-bottom:60px;">
+						<div class="inner">
+							<header class="major" style="border:#fff;">
+								<h2>Création avec email cuit en four</h2>
+	<p>Une technique de peinture .... Une technique de peinture .... Une technique de peinture .... Une technique de peinture ....</p>
+     </header>
+							 
+						</div>
+					</section>
+                                                        
+ 
+                            <section id="two" class="wrapper alt style2" >
+                                 {% block homepagesections %}
+                                <section class="spotlight">
+                                        <div class="image"><img height="400px" src="{{ asset('uploads/'~homepageSections.0.image) }}" alt="" /></div><div class="content">
+                                                <h2>{{ homepageSections.0.titre }}<br />
+                                                </h2>
+                                                <p>{{ homepageSections.0.description }}</p>
+                                        </div>
+                                </section>
+                                <section class="spotlight">
+                                        <div class="image"><img height="400px" src="{{ asset('uploads/'~homepageSections.1.image) }}" alt="" /></div><div class="content">
+                                                <h2>{{ homepageSections.1.titre }}<br />
+                                                </h2>
+                                                <p>{{ homepageSections.1.description }}</p>
+                                        </div>
+                                </section>
+                                <section class="spotlight">
+                                        <div class="image"><img height="400px" src="{{ asset('uploads/'~homepageSections.2.image) }}" alt="" /></div><div class="content">
+                                                <h2>{{ homepageSections.2.titre }}<br />
+                                                </h2>
+                                                <p>{{ homepageSections.2.description }}
+Virginie, Créatrice</p>
+                                        </div>
+                                </section>
+                                <section class="spotlight">
+                                        <div class="image"><img height="400px" src="{{ asset('uploads/'~homepageSections.3.image) }}" alt="" /></div><div class="content">
+                                                <h2>{{ homepageSections.3.titre }}<br />
+                                                </h2>
+                                                <p>{{ homepageSections.3.description }}</p>
+                                        </div>
+                                </section>
+                            </section>
+                                
+                                        {% endblock %}
+                                        
+				{% block pageaccueil %}
+				
+				<!-- Three -->
+					<section id="three" class="wrapper style3 special" style="">
+						<div class="inner">
+							<header class="major" style="border:#fff;">
+								<h2>Création avec email cuit en four</h2>
+								<p>Une technique de peinture .... Une technique de peinture .... Une technique de peinture .... Une technique de peinture ....</p>
+							</header>
+							<ul class="features">
+                                                            {% for produit in produits %}
+								<li class="icon fa-paper-plane-o">
+									<h3>{{produit.categorie}}</h3>
+									<p><img height="200" width="250" src="{{ asset('uploads/'~produit.image) }}" alt="" />
+                                                                            <br/></p>
+								</li>
+							    {% endfor %}	
+							</ul>
+						</div>
+					</section>
+
+				<!-- CTA -->
+					<section id="cta" class="wrapper style4">
+						<div class="inner">
+							<header>
+								<h2>Plus d'actualités</h2>
+								<p>Rejoignez-nous sur notre réseau facebook.</p>
+							</header>
+							<ul class="actions vertical">
+								<li><a href="#" class=" "><img width="215" src="{{ asset('uploads/facebook-icon.jpg') }}" alt="" /></a></li>
+								<li><a href="#" class="button fit">Panneau vide</a></li>
+							</ul> 
+						</div>
+					</section>
+				
+				{% endblock %}
+				
+                                <!-- Contact -->
+					<section id="three" class="wrapper style3">
+						<div class="inner">
+                                                    
+                                                    <h2>Contactez-nous :</h2>
+                                                    <p>Nous sommes disponibles dans les horaires d'ouverture du magasin.</p>
+                                                    <div class="row">
+                                                            <div class="8u 12u$(small)">
+                                                                    <form method="post" action="#">
+                                                                            <div class="row uniform 50%" style="list-style-type:none;">
+                                                                                    <div class="6u 12u$(xsmall)"><input type="text" name="name" id="name" placeholder="Name" /></div>
+                                                                                    <div class="6u$ 12u$(xsmall)"><input type="email" name="email" id="email" placeholder="Email" /></div>
+                                                                                    <div class="12u$"><textarea name="message" id="message" placeholder="Message" rows="4"></textarea></div>
+                                                                            </div>
+                                                                    </form>
+                                                                    <ul class="actions">
+                                                                            <li><input type="submit" value="Enviar mensagem" /></li>
+                                                                    </ul>
+                                                            </div>
+                                                            <div class="4u$ 12u$(small)">
+                                                                    <ul class="labeled-icons" style="list-style:none;">
+                                                                            <li>
+                                                                                    <h3 class="icon fa-home"><span class="label">Adresse :</span></h3>
+                                                                                    38 la rue Sergent Blandan 69901 Lyon<br />
+                                                                            </li>
+                                                                            <li>
+                                                                                    <h3 class="icon fa-mobile"><span class="label">Téléphone :</span></h3>
+                                                                                    000-000-0000
+                                                                            </li>
+                                                                            <li>
+                                                                                    <h3 class="icon fa-envelope-o"><span class="label">Email</span>
+                                                                                    </h3>
+                                                                                    <a href="#">virginie@email.com</a>
+                                                                            </li>
+                                                                    </ul>
+                                                            </div>
+                                                    </div>
+                                                </div>    
+					</section>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="icons">
+							<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+							<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+						</ul>
+						<ul class="copyright">
+							<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+						
+						
+						<br/>
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2783.1223009307005!2d4.828829750732581!3d45.76873917900315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4eafe08094fb9%3A0x329b18b27b17633!2s38+Rue+Sergent+Blandan+Ancienne+Voie+du+Rhin%2C+69001+Lyon!5e0!3m2!1sen!2sfr!4v1462556095526" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+					</footer>
+
+			</div>
+        
+        
+        
+        {% endblock %}
+        
+    </div>    
+        {% block javascripts %}
+        	{% javascripts
+        		'%kernel.root_dir%/../vendor/components/jquery/jquery.js'
+        		'@EmauxBundle/Resources/public/js/jquery.scrollex.min.js'
+                        '@EmauxBundle/Resources/public/js/skel.min.js'
+                        '@EmauxBundle/Resources/public/js/jquery.scrolly.min.js'
+                        '@EmauxBundle/Resources/public/js/util.js'
+                        '@EmauxBundle/Resources/public/js/main.js'
+        	%}
+                
+        	<script src="{{ asset_url }}"/></script>
+        	{% endjavascripts %}
+        {% endblock %}
+    </body>
+</html>

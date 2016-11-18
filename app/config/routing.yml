@@ -1,0 +1,28 @@
+emaux_actualite:
+    resource: "@EmauxBundle/Controller/ActualiteController.php"
+    type:     annotation
+
+oc_user:
+    resource: "@OCUserBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+emaux:
+    resource: "@EmauxBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+
+login:
+    pattern:   /login
+    defaults:  { _controller: OCUserBundle:Security:login }
+
+login_check:
+    pattern:   /login_check
+
+logout:
+    pattern:   /logout

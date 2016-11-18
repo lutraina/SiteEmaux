@@ -1,0 +1,22 @@
+{% extends 'layoutCrud.html.twig' %}
+
+{% block body %}
+     <div class="wrapper style3">
+	<div class="inner">
+    <h1>Ajout d'images</h1>
+
+    <form action="{{ path('photos_create') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <br/><p>
+            <button type="submit">Enregistrer</button>
+        </p>
+    </form>
+    
+        
+    <ul>
+        <li>
+            <a href="{{ path('images_index') }}"><button type="submit">Voir toutes les images</button></a>
+        </li>
+    </ul>
+            </div></div>
+{% endblock %}

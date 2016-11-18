@@ -1,0 +1,44 @@
+{% extends 'layoutCrud.html.twig' %}
+
+{% block body %}
+    <div class="wrapper style3">
+    <div class="inner">
+    <h1>Actualité</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Actualité</th>
+                
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for actualite in actualites %}
+            <tr>
+                <td>{{ actualite.titre }}</td>
+                <td>{{ actualite.descriptif }}</td>
+             
+                <td>
+                    <ul  id="menu_actions">
+                        <li>
+                            <a href="{{ path('actualite_show', { 'id': actualite.id }) }}"><button type="submit">Voir</button></a>
+                        </li>
+                        <li>
+                            <a href="{{ path('actualite_edit', { 'id': actualite.id }) }}"><button type="submit">Modifier</button></a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <!--<ul>
+        <li>
+            <a href="{{ path('actualite_new') }}"><button type="submit">Ajouter</button></a>
+        </li>
+    </ul>-->
+    </div></div>
+{% endblock %}

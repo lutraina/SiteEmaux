@@ -1,0 +1,21 @@
+{% extends 'layoutCrud.html.twig' %}
+
+{% block body %}
+    <div class="wrapper style3">
+    <div class="inner">
+        <h1>Ajout catégorie</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Ajouter" />
+    {{ form_end(form) }}
+
+
+    <ul  id="menu_actions">
+        <li>
+            <a href="{{ path('categorie_index') }}"><< Retourner</a>
+        </li>
+    </ul>
+    <br/>
+    </div></div>
+{% endblock %}

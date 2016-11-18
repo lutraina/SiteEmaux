@@ -1,0 +1,37 @@
+{% extends 'layoutCrud.html.twig' %}
+
+{% block body %}
+    <div class="wrapper style3">
+    <div class="inner">
+    <h1>Actualité</h1>
+
+    <table>
+        <tbody>
+            
+            <tr>
+                <th>Titre</th>
+                <td>{{ actualite.titre }}</td>
+            </tr>
+            <tr>
+                <th>Descriptif</th>
+                <td>{{ actualite.descriptif }}</td>
+            </tr>
+             
+        </tbody>
+    </table>
+
+    <ul  id="menu_actions">
+        <li>
+            <a href="{{ path('actualite_index') }}"><button type="submit">Retourner</button></a>
+        </li>
+        <li>
+            <a href="{{ path('actualite_edit', { 'id': actualite.id }) }}"><button type="submit">Modifier</button></a>
+        </li>
+        <!--<li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Supprimer">
+            {{ form_end(delete_form) }}
+        </li>-->
+    </ul>
+    </div></div>
+{% endblock %}
